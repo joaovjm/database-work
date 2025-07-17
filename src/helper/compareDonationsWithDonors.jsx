@@ -8,8 +8,6 @@ export async function compareDonationsWithDonors(csvData, setItemFound, setItemN
   let itemNotFound = [];
   if (typeFile === "Donator") {
     setItemFound(csvData)
-  } else if(typeFile === undefined){
-    setItemFound(csvData)
   } else {
     try {
       const allExistingIds = new Set();

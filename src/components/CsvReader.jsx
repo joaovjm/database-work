@@ -13,9 +13,9 @@ const CsvReader = (file, setCsvData, setTypeFile) => {
           setTypeFile("Telefone 3")
         } else if (results.data[0].donor_cpf){
           setTypeFile("cpf")
-        } else if (results.data[0].observation){
+        } else if (results.data[0].donor_observation){
           setTypeFile("observation")
-        } else if (results.data[0].reference){
+        } else if (results.data[0].donor_reference){
           setTypeFile("reference")
         } else if (results.data[0].donor_type){
           setTypeFile("Donator")
