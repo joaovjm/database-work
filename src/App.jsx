@@ -4,10 +4,15 @@ import CsvReader from "./components/CsvReader";
 import { updateDataBase } from "./helper/updateDataBase";
 import { ToastContainer } from "react-toastify";
 import { compareDonationsWithDonors } from "./helper/compareDonationsWithDonors";
+import { updateDonator } from "./helper/updateDonator";
+import 'react-toastify/dist/ReactToastify.css';
+import { compareDonations } from "./helper/compareDonations";
+import { updateDonations } from "./helper/updateDonations";
 function App() {
   const [csvData, setCsvData] = useState([]);
   const [typeFile, setTypeFile] = useState();
   const [itemNotFound, setItemNotFound] = useState([]);
+  const [itemFound, setItemFound] = useState([])
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -15,11 +20,14 @@ function App() {
   };
 
   const compare = () => {
-    compareDonationsWithDonors(csvData, setItemNotFound);
+    //compareDonationsWithDonors(csvData, setItemFound, setItemNotFound, typeFile);
+    //compareDonations(csvData)
   };
 
-  const handleUpdate = () => {
-    updateDataBase(typeFile, csvData);
+  const handleUpdate = async () => {
+    //await updateDonator(csvData, 900)
+    //await updateDataBase(typeFile, itemFound);
+    updateDonations(csvData, 500, 300)
   };
 
   return (
@@ -37,13 +45,13 @@ function App() {
         <ToastContainer />
       </div>
 
-      <div>
+      {/* <div>
         {itemNotFound?.length > 0 && (
           itemNotFound.map((item, index) => (
-            <p key={index}>{index}{item}</p>
+            <p key={index}>{index}: {item}</p>
           ))
         )}
-      </div>
+      </div> */}
     </>
   );
 }
