@@ -4,6 +4,7 @@ import CsvReader from "./components/CsvReader";
 import { updateDataBase } from "./helper/updateDataBase";
 import { ToastContainer } from "react-toastify";
 import { compareDonationsWithDonors } from "./helper/compareDonationsWithDonors";
+import { updateMensal } from "./helper/updateMensal";
 function App() {
   const [csvData, setCsvData] = useState([]);
   const [typeFile, setTypeFile] = useState();
@@ -19,7 +20,8 @@ function App() {
   };
 
   const handleUpdate = () => {
-    updateDataBase(typeFile, csvData);
+    //updateDataBase(typeFile, csvData);
+    updateMensal(csvData)
   };
 
   return (
